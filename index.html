@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The Lambs Book of Life</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=fire">
+</head>
+
+<style>
+    body {
+      background-color: black;
+      font-family: cursive;
+    }
+    
+    .glow {
+      font-size: 80px;
+      color: #fff;
+      text-align: center;
+      animation: glow 1s ease-in-out infinite alternate;
+    }
+    
+    @-webkit-keyframes glow {
+      from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+      }
+      
+      to {
+        text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+      }
+    }
+    </style>
+<body>
+
+<div class="w3-container w3-center">
+<div class="w3-container">
+<p class="w3-xxlarge w3-dark-grey glow">Welcome To the Lamb's Book Of Life</p>
+</div>
+<!-- Bottom card with spacing -->
+<div class="w3-container w3-margin-top w3-padding-24">
+    <div class="w3-card-4 w3-dark-grey">
+      <div class="w3-container">
+        <h1 class="w3-text-white">Sending Friend Request</h1>
+        <img src="Jesus.JPG" alt="Avatar" style="width:35%" onmouseenter="playFriends()" onmouseleave="stopFriends()">
+        <h1 class="font-effect-fire">Jesus of Nazareth</h1>
+        <div class="w3-section">
+            <button class="w3-button w3-xxlarge w3-green" onclick="playAudio('accept')">Accept</button>
+            <button class="w3-button w3-xxlarge w3-red" onclick="playAudio('decline')">Decline</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <p class="w3-xxlarge w3-text-white glow">My Two Witnesses</p>
+
+  <!-- Top two cards side by side -->
+  <div class="w3-row-padding w3-center">
+    
+    <!-- First Card -->
+    <div class="w3-half">
+      <div class="w3-card-4 w3-dark-grey">
+        <div class="w3-container">
+          <h1>Rose M. Aluli</h1>
+          <img src="rose.JPG" alt="Avatar" style="width:35%">
+          <h1 class="font-effect-fire">A Great Wonder In Heaven</h1>
+          <div class="w3-section">
+            <button class="w3-button w3-xxlarge w3-green" onclick="playAudio('roseAccept')">Accept</button>
+<button class="w3-button w3-xxlarge w3-red" onclick="playAudio('wrong')">Decline</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Second Card -->
+    <div class="w3-half">
+      <div class="w3-card-4 w3-dark-grey">
+        <div class="w3-container">
+          <h1>Kale F. Aluli</h1>
+          <img src="kale.JPG" alt="Avatar" style="width:35%">
+          <h1 class="font-effect-fire">I Will Carry On The Kingdom</h1>
+          <div class="w3-section">
+            <button class="w3-button w3-xxlarge w3-green" onclick="playAudio('kaleAccept')">Accept</button>
+<button class="w3-button w3-xxlarge w3-red" onclick="playAudio('wrong')">Decline</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div> <!-- End of top row -->
+
+  
+
+  <!-- Bottom card with spacing -->
+  <div class="w3-container w3-margin-top w3-padding-24">
+    <div class="w3-card-4 w3-dark-grey">
+      <div class="w3-container">
+        <h1>THE CHURCH OF JESUS CHRIST FOREVER</h1>
+        <img src="church2.jpg" alt="Avatar" style="width:50%">
+        <h1 class="font-effect-fire">A Glorious Church, Not Having Spot, or Wrinkle, or Any Such Thing</h1>
+        <div class="w3-section">
+            <p class="w3-xlarge"> Joel 2:27 Ephesians 5:27</p>
+
+            <button class="w3-button w3-xxlarge w3-green" onclick="playJoinUsAudio()">JOIN US</button>
+            
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Audio Elements (hidden) -->
+
+<audio id="accept" src="accept.mp3"></audio>      <!-- Jesus Accept -->
+<audio id="decline" src="decline.mp3"></audio>    <!-- Jesus Decline -->
+<audio id="kaleAccept" src="rev1134.mp3"></audio>
+<audio id="roseAccept" src="rev1212.mp3"></audio>
+<audio id="wrong" src="wrong.mp3"></audio>
+<audio id="joinUs" src="success.mp3"></audio>
+<audio id="believen" src="believen.mp3"></audio>
+<audio id="friendsAudio" src="friends.mp3"></audio>
+
+
+<script>
+function playAudio(id) {
+  const audio = document.getElementById(id);
+  if (audio) {
+    audio.currentTime = 0; // reset in case it's already playing
+    audio.play();
+  }
+}
+
+function playJoinUsAudio() {
+  const success = document.getElementById("joinUs");
+  const heaven = document.getElementById("believen");
+
+  // Reset both in case they were already played
+  success.currentTime = 0;
+  heaven.currentTime = 0;
+
+  success.play();
+
+  // When success.mp3 finishes, play heaven.mp3
+  success.onended = () => heaven.play();
+}
+
+function playFriends() {
+  const audio = document.getElementById("friendsAudio");
+  audio.currentTime = 0;
+  audio.play();
+}
+
+function stopFriends() {
+  const audio = document.getElementById("friendsAudio");
+  audio.pause();
+  audio.currentTime = 0;
+}
+</script>
+</script>
+
+</body>
+</html>
